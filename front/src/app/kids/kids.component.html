@@ -1,0 +1,55 @@
+<div class="container">
+        <div class="card"
+             *ngIf="erroTitulo.length == 0 && remainingTime > 0">
+
+                <div class="success-message">
+                        <div class="spinner"></div>
+                        <p>Mostrando número {{ ultimoNumero }} na tela.</p>
+                        <label>Por favor aguarde {{remainingTime}} segundos...</label>
+                </div>
+
+        </div>
+
+        <div class="card"
+             *ngIf="erroTitulo.length == 0 && remainingTime == 0">
+                <h1 class="title">Kids</h1>
+
+                <!-- Mensagem de Sucesso ocupando toda a tela -->
+                <div *ngIf="successMessage"
+                     class="success-message">
+                        <div class="spinner"></div>
+                        <p>{{ successMessage }}</p>
+                </div>
+
+                <div *ngIf="!successMessage"
+                     class="form-group">
+                        <label for="numero"
+                               class="form-label">Digite o número</label>
+                        <input type="number"
+                               id="numero"
+                               [(ngModel)]="inputValue"
+                               placeholder="Digite um número"
+                               class="input-field" />
+                </div>
+
+                <button (click)="sendRequestKids()"
+                        class="submit-button">Enviar</button>
+        </div>
+
+        <br>
+
+        <div class="card card-error"
+             *ngIf="erroTitulo.length > 0">
+                <h1 style="color: red;">{{ erroTitulo }}</h1>
+                <h1 style="color: red;">{{ erroMensagem }}</h1>
+
+                <button (click)="sendRequestKids()"
+                        class="submit-button">Tentar novamente</button>
+                <br />
+                <br />
+
+                <button (click)="limparCampos()"
+                        class="btn"
+                        style="background-color: #a92b2b;">Cancelar</button>
+        </div>
+</div>

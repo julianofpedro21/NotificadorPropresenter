@@ -1,0 +1,89 @@
+/* Remove margem e padding padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+  }
+  
+  /* Estilo dos botões */
+  .btn {
+    width: 80%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 18px;
+    color: #fff;
+    background-color: #1e88e5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #1565c0;
+  }
+  
+  /* Estilo do botão de voltar */
+  .btn-back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-back:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Estilo da mensagem de erro */
+  .error-message {
+    text-align: center;
+    color: #f44336; /* Cor vermelha */
+    background-color: #ffebee;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  .error-message h3,
+  .error-message h4 {
+    margin: 10px 0;
+  }
+  
+  .error-message label {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .error-message h3,
+  .error-message h4 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  

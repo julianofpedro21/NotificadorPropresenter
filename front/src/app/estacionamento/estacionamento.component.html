@@ -1,0 +1,63 @@
+<div class="container">
+
+       <div class="card"
+            *ngIf="erroTitulo.length == 0 && remainingTime > 0">
+              <div class="success-message">
+                     <div class="spinner"></div>
+                     <p>Mostrando  {{ ultimoModelo }} {{ultimaPlaca}} na tela.</p>
+                     <label>Por favor aguarde {{remainingTime}} segundos...</label>
+              </div>
+       </div>
+
+
+       <div class="card"
+             *ngIf="erroTitulo.length == 0 && remainingTime == 0">
+              <h1 class="title">Estacionamento</h1>
+
+              <!-- Mensagem de Sucesso ocupando a tela inteira -->
+              <div *ngIf="successMessage"
+                   class="success-message">
+                     <div class="spinner"></div>
+                     <p>{{ successMessage }}</p>
+              </div>
+
+              <div *ngIf="!successMessage"
+                   class="form-group">
+                     <label for="modelo"
+                            class="form-label">Digite o modelo do veículo</label>
+                     <input type="text"
+                            id="modelo"
+                            [(ngModel)]="modelo"
+                            placeholder="Digite um modelo"
+                            class="input-field" />
+
+                     <label for="placa"
+                            class="form-label">Digite a placa do veículo</label>
+                     <input type="text"
+                            id="placa"
+                            [(ngModel)]="placa"
+                            placeholder="Digite uma placa"
+                            class="input-field" />
+
+                     <button (click)="sendRequestEstacionamento()"
+                             class="submit-button">Enviar</button>
+              </div>
+       </div>
+
+       <br>
+
+       <div class="card card-error"
+            *ngIf="erroTitulo.length > 0">
+              <h1 style="color: red;">{{ erroTitulo }}</h1>
+              <h1 style="color: red;">{{ erroMensagem }}</h1>
+
+              <button (click)="sendRequestEstacionamento()"
+                      class="submit-button">Tentar novamente</button>
+              <br />
+              <br />
+
+              <button (click)="limparCampos()"
+                      class="btn"
+                      style="background-color: #a92b2b;">Cancelar</button>
+       </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container"
+     *ngIf="conectadoPP">
+        <!-- Botão de Voltar -->
+        <button *ngIf="tipo !== ''"
+                class="btn-back"
+                (click)="voltar()">Voltar</button>
+
+        <div *ngIf="tipo === ''">
+                <button class="btn"
+                        (click)="kids()">Kids</button>
+                <button class="btn"
+                        (click)="estacionamento()">Estacionamento</button>
+        </div>
+
+        <app-kids *ngIf="tipo === 'k'"></app-kids>
+        <app-estacionamento *ngIf="tipo === 'e'"></app-estacionamento>
+</div>
+
+<div class="container"
+     *ngIf="!conectadoPP">
+        <div class="error-message">
+                <h3>Não encontrado o ProPresenter na rede.</h3>
+                <h4>Verifique com o departamento de projeção.</h4>
+        </div>
+        <button class="btn"
+                (click)="validaPP()">Tentar novamente</button>
+</div>
